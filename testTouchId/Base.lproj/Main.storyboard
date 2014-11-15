@@ -1,25 +1,94 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6162" systemVersion="14A238h" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6185.11" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6160"/>
+        <deployment defaultVersion="1792" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6190.4"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fra-Tv-VB0">
+                                <rect key="frame" x="270" y="250" width="46" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <state key="normal" title="点击">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="146" y="246" width="100" height="40"/>
+                                </variation>
+                                <variation key="heightClass=compact-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="177" y="185" width="46" height="30"/>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
+                                    <rect key="frame" x="255" y="238" width="46" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="clickTestButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="zPk-3S-yme"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="result" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KH0-kq-EJt">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="KH0-kq-EJt" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="107" id="B56-CL-foX"/>
+                            <constraint firstItem="fra-Tv-VB0" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="126" id="DMV-Ww-UNK"/>
+                            <constraint firstAttribute="trailing" secondItem="KH0-kq-EJt" secondAttribute="trailing" constant="80" id="dQK-Iq-ztz">
+                                <variation key="widthClass=compact" constant="20" symbolic="YES"/>
+                            </constraint>
+                            <constraint firstItem="fra-Tv-VB0" firstAttribute="top" secondItem="KH0-kq-EJt" secondAttribute="bottom" constant="98" id="eVB-Mc-fBd"/>
+                            <constraint firstItem="fra-Tv-VB0" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="226" id="esN-8N-eqH"/>
+                            <constraint firstItem="KH0-kq-EJt" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="ng3-tO-fp6"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="KH0-kq-EJt"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="B56-CL-foX"/>
+                                <exclude reference="dQK-Iq-ztz"/>
+                                <exclude reference="ng3-tO-fp6"/>
+                                <exclude reference="DMV-Ww-UNK"/>
+                                <exclude reference="eVB-Mc-fBd"/>
+                                <exclude reference="esN-8N-eqH"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="KH0-kq-EJt"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="B56-CL-foX"/>
+                                <include reference="dQK-Iq-ztz"/>
+                                <include reference="ng3-tO-fp6"/>
+                                <include reference="DMV-Ww-UNK"/>
+                                <include reference="eVB-Mc-fBd"/>
+                                <include reference="esN-8N-eqH"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="testButton" destination="fra-Tv-VB0" id="4wj-0W-sCp"/>
+                        <outlet property="testLable" destination="KH0-kq-EJt" id="KYB-DC-Aut"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="156" y="30"/>
         </scene>
     </scenes>
 </document>

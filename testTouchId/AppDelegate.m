@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "TouchIdUtil.h"
 
 @interface AppDelegate ()
 
@@ -32,6 +33,17 @@
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.8 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        if ([[TouchIdUtil sharedInstance] canEvaluatePolicy]) {
+            [[TouchIdUtil sharedInstance] evaluatePolicy:@"test" fallbackTitle:@"cancel" callback:^(TouchIdEvaluateResult result) {
+                if (result == kTouchIdEvaluateResultSuccess) {
+                    NSLog(@"success!");
+                } else {
+                    NSLog(@"failed");
+                }
+            }];
+        }
+    });
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {

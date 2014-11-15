@@ -7,8 +7,14 @@
 //
 
 #import "ViewController.h"
+#import "TouchIdUtil.h"
 
 @interface ViewController ()
+@property (weak, nonatomic) IBOutlet UIButton *testButton;
+@property (weak, nonatomic) IBOutlet UILabel *testLable;
+@property (nonatomic) NSInteger number;
+
+- (IBAction)clickTestButton:(id)sender;
 
 @end
 
@@ -16,6 +22,7 @@
             
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _number = 0;
     // Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -24,4 +31,32 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)clickTestButton:(id)sender
+{
+    [self touchIdTest];
+}
+
+- (void)resetLable:(NSString *)text
+{
+    [_testLable setText:text];
+}
+
+- (void)performOnUI:(NSString *)text
+{
+    [self performSelectorOnMainThread:@selector(resetLable:) withObject:text waitUntilDone:NO];
+
+}
+
+- (void)touchIdTest
+{
+    if ([[TouchIdUtil sharedInstance] canEvaluatePolicy]) {
+        [[TouchIdUtil sharedInstance] evaluatePolicy:@"test" fallbackTitle:@"cancel" callback:^(TouchIdEvaluateResult result) {
+            if (result == kTouchIdEvaluateResultSuccess) {
+                NSLog(@"success!");
+            } else {
+                NSLog(@"failed");
+            }
+        }];
+    }
+}
 @end
